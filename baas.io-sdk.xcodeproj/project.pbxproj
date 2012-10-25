@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		AF6C65A41638D48700776F91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF6C65A31638D48700776F91 /* Foundation.framework */; };
-		AF6C65A91638D48700776F91 /* baas_io_sdk.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF6C65A81638D48700776F91 /* baas_io_sdk.h */; };
-		AF6C65AB1638D48700776F91 /* baas_io_sdk.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6C65AA1638D48700776F91 /* baas_io_sdk.m */; };
 		AF6C65B31638D48700776F91 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF6C65B21638D48700776F91 /* SenTestingKit.framework */; };
 		AF6C65B61638D48700776F91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF6C65A31638D48700776F91 /* Foundation.framework */; };
 		AF6C65B91638D48700776F91 /* libbaas.io-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF6C65A01638D48700776F91 /* libbaas.io-sdk.a */; };
@@ -24,6 +22,9 @@
 		AF6C65E91638D56400776F91 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6C65DE1638D56400776F91 /* AFURLConnectionOperation.m */; };
 		AF6C65EA1638D56400776F91 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6C65E01638D56400776F91 /* AFXMLRequestOperation.m */; };
 		AF6C65EB1638D56400776F91 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6C65E21638D56400776F91 /* UIImageView+AFNetworking.m */; };
+		AFCB792F16392ECA00EF8E1B /* BaasClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCB792916392ECA00EF8E1B /* BaasClient.m */; };
+		AFCB793116392ECA00EF8E1B /* BaasIOResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCB792C16392ECA00EF8E1B /* BaasIOResponse.m */; };
+		AFCB793216392ECA00EF8E1B /* BaasQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCB792E16392ECA00EF8E1B /* BaasQuery.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +65,6 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
-				AF6C65A91638D48700776F91 /* baas_io_sdk.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,8 +74,6 @@
 		AF6C65A01638D48700776F91 /* libbaas.io-sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libbaas.io-sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF6C65A31638D48700776F91 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AF6C65A71638D48700776F91 /* baas.io-sdk-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "baas.io-sdk-Prefix.pch"; sourceTree = "<group>"; };
-		AF6C65A81638D48700776F91 /* baas_io_sdk.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = baas_io_sdk.h; sourceTree = "<group>"; };
-		AF6C65AA1638D48700776F91 /* baas_io_sdk.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = baas_io_sdk.m; sourceTree = "<group>"; };
 		AF6C65B11638D48700776F91 /* baas.io-sdkTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "baas.io-sdkTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF6C65B21638D48700776F91 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		AF6C65BC1638D48700776F91 /* baas.io-sdkTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "baas.io-sdkTests-Info.plist"; sourceTree = "<group>"; };
@@ -102,6 +100,12 @@
 		AF6C65E11638D56400776F91 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+AFNetworking.h"; path = "submodules/AFNetworking/AFNetworking/UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		AF6C65E21638D56400776F91 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "submodules/AFNetworking/AFNetworking/UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		AF6C66111638E51200776F91 /* UGAPIApp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UGAPIApp.xcodeproj; path = "submodules/usergrid-ios-sdk/UGAPIApp.xcodeproj"; sourceTree = "<group>"; };
+		AFCB792816392ECA00EF8E1B /* BaasClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaasClient.h; sourceTree = "<group>"; };
+		AFCB792916392ECA00EF8E1B /* BaasClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaasClient.m; sourceTree = "<group>"; };
+		AFCB792B16392ECA00EF8E1B /* BaasIOResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaasIOResponse.h; sourceTree = "<group>"; };
+		AFCB792C16392ECA00EF8E1B /* BaasIOResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaasIOResponse.m; sourceTree = "<group>"; };
+		AFCB792D16392ECA00EF8E1B /* BaasQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaasQuery.h; sourceTree = "<group>"; };
+		AFCB792E16392ECA00EF8E1B /* BaasQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaasQuery.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,8 +163,12 @@
 		AF6C65A51638D48700776F91 /* baas.io-sdk */ = {
 			isa = PBXGroup;
 			children = (
-				AF6C65A81638D48700776F91 /* baas_io_sdk.h */,
-				AF6C65AA1638D48700776F91 /* baas_io_sdk.m */,
+				AFCB792816392ECA00EF8E1B /* BaasClient.h */,
+				AFCB792916392ECA00EF8E1B /* BaasClient.m */,
+				AFCB792B16392ECA00EF8E1B /* BaasIOResponse.h */,
+				AFCB792C16392ECA00EF8E1B /* BaasIOResponse.m */,
+				AFCB792D16392ECA00EF8E1B /* BaasQuery.h */,
+				AFCB792E16392ECA00EF8E1B /* BaasQuery.m */,
 				AF6C65A61638D48700776F91 /* Supporting Files */,
 			);
 			path = "baas.io-sdk";
@@ -350,7 +358,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF6C65AB1638D48700776F91 /* baas_io_sdk.m in Sources */,
 				AF6C65E31638D56400776F91 /* AFHTTPClient.m in Sources */,
 				AF6C65E41638D56400776F91 /* AFHTTPRequestOperation.m in Sources */,
 				AF6C65E51638D56400776F91 /* AFImageRequestOperation.m in Sources */,
@@ -360,6 +367,9 @@
 				AF6C65E91638D56400776F91 /* AFURLConnectionOperation.m in Sources */,
 				AF6C65EA1638D56400776F91 /* AFXMLRequestOperation.m in Sources */,
 				AF6C65EB1638D56400776F91 /* UIImageView+AFNetworking.m in Sources */,
+				AFCB792F16392ECA00EF8E1B /* BaasClient.m in Sources */,
+				AFCB793116392ECA00EF8E1B /* BaasIOResponse.m in Sources */,
+				AFCB793216392ECA00EF8E1B /* BaasQuery.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
