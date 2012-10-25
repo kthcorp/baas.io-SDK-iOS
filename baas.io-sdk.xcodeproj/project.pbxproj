@@ -22,9 +22,15 @@
 		AF6C65E91638D56400776F91 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6C65DE1638D56400776F91 /* AFURLConnectionOperation.m */; };
 		AF6C65EA1638D56400776F91 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6C65E01638D56400776F91 /* AFXMLRequestOperation.m */; };
 		AF6C65EB1638D56400776F91 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6C65E21638D56400776F91 /* UIImageView+AFNetworking.m */; };
+		AF705A0C16396E0100D88E29 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFACBBC416396D4700B13A29 /* UIKit.framework */; };
+		AFACBBC516396D4700B13A29 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFACBBC416396D4700B13A29 /* UIKit.framework */; };
 		AFCB792F16392ECA00EF8E1B /* BaasClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCB792916392ECA00EF8E1B /* BaasClient.m */; };
 		AFCB793116392ECA00EF8E1B /* BaasIOResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCB792C16392ECA00EF8E1B /* BaasIOResponse.m */; };
 		AFCB793216392ECA00EF8E1B /* BaasQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCB792E16392ECA00EF8E1B /* BaasQuery.m */; };
+		AFCB793C16392FAA00EF8E1B /* libUGAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AFCB793916392FA400EF8E1B /* libUGAPI.a */; };
+		AFCB7942163934E200EF8E1B /* BaasClient.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFCB792816392ECA00EF8E1B /* BaasClient.h */; };
+		AFCB7943163934E200EF8E1B /* BaasIOResponse.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFCB792B16392ECA00EF8E1B /* BaasIOResponse.h */; };
+		AFCB7944163934E200EF8E1B /* BaasQuery.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AFCB792D16392ECA00EF8E1B /* BaasQuery.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,12 +55,19 @@
 			remoteGlobalIDString = E89D6CC0150E5B2E005F5FB9;
 			remoteInfo = UGAPIAppTests;
 		};
-		AF6C661E1638E51D00776F91 /* PBXContainerItemProxy */ = {
+		AFCB793816392FA400EF8E1B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF6C66111638E51200776F91 /* UGAPIApp.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = AF6C66281638E5BF00776F91;
+			remoteInfo = UGAPI;
+		};
+		AFCB793A16392FA700EF8E1B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AF6C66111638E51200776F91 /* UGAPIApp.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = E89D6C9B150E5B2E005F5FB9;
-			remoteInfo = UGAPIApp;
+			remoteGlobalIDString = AF6C66271638E5BF00776F91;
+			remoteInfo = UGAPI;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -62,9 +75,12 @@
 		AF6C659E1638D48700776F91 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = "include/${PRODUCT_NAME}";
+			dstPath = include;
 			dstSubfolderSpec = 16;
 			files = (
+				AFCB7942163934E200EF8E1B /* BaasClient.h in CopyFiles */,
+				AFCB7943163934E200EF8E1B /* BaasIOResponse.h in CopyFiles */,
+				AFCB7944163934E200EF8E1B /* BaasQuery.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,12 +116,14 @@
 		AF6C65E11638D56400776F91 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+AFNetworking.h"; path = "submodules/AFNetworking/AFNetworking/UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		AF6C65E21638D56400776F91 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "submodules/AFNetworking/AFNetworking/UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		AF6C66111638E51200776F91 /* UGAPIApp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UGAPIApp.xcodeproj; path = "submodules/usergrid-ios-sdk/UGAPIApp.xcodeproj"; sourceTree = "<group>"; };
+		AFACBBC416396D4700B13A29 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AFCB792816392ECA00EF8E1B /* BaasClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaasClient.h; sourceTree = "<group>"; };
 		AFCB792916392ECA00EF8E1B /* BaasClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaasClient.m; sourceTree = "<group>"; };
 		AFCB792B16392ECA00EF8E1B /* BaasIOResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaasIOResponse.h; sourceTree = "<group>"; };
 		AFCB792C16392ECA00EF8E1B /* BaasIOResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaasIOResponse.m; sourceTree = "<group>"; };
 		AFCB792D16392ECA00EF8E1B /* BaasQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaasQuery.h; sourceTree = "<group>"; };
 		AFCB792E16392ECA00EF8E1B /* BaasQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaasQuery.m; sourceTree = "<group>"; };
+		AFCB793F163930B500EF8E1B /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSONKit.h; path = submodules/JSONKit/JSONKit.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +131,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFACBBC516396D4700B13A29 /* UIKit.framework in Frameworks */,
+				AFCB793C16392FAA00EF8E1B /* libUGAPI.a in Frameworks */,
 				AF6C65A41638D48700776F91 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF705A0C16396E0100D88E29 /* UIKit.framework in Frameworks */,
 				AF6C65B31638D48700776F91 /* SenTestingKit.framework in Frameworks */,
 				AF6C65B61638D48700776F91 /* Foundation.framework in Frameworks */,
 				AF6C65B91638D48700776F91 /* libbaas.io-sdk.a in Frameworks */,
@@ -133,6 +154,7 @@
 		AF6C65951638D48700776F91 = {
 			isa = PBXGroup;
 			children = (
+				AFACBBC416396D4700B13A29 /* UIKit.framework */,
 				AF6C66111638E51200776F91 /* UGAPIApp.xcodeproj */,
 				AF6C65A51638D48700776F91 /* baas.io-sdk */,
 				AF6C65BA1638D48700776F91 /* baas.io-sdkTests */,
@@ -153,6 +175,7 @@
 		AF6C65A21638D48700776F91 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AFCB793E163930A900EF8E1B /* JSONKit */,
 				AF6C65CE1638D54E00776F91 /* AFNetworking */,
 				AF6C65A31638D48700776F91 /* Foundation.framework */,
 				AF6C65B21638D48700776F91 /* SenTestingKit.framework */,
@@ -232,8 +255,17 @@
 			children = (
 				AF6C661B1638E51200776F91 /* UGAPIApp.app */,
 				AF6C661D1638E51200776F91 /* UGAPIAppTests.octest */,
+				AFCB793916392FA400EF8E1B /* libUGAPI.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		AFCB793E163930A900EF8E1B /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				AFCB793F163930B500EF8E1B /* JSONKit.h */,
+			);
+			name = JSONKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,7 +282,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				AF6C661F1638E51D00776F91 /* PBXTargetDependency */,
+				AFCB793B16392FA700EF8E1B /* PBXTargetDependency */,
 			);
 			name = "baas.io-sdk";
 			productName = "baas.io-sdk";
@@ -324,6 +356,13 @@
 			remoteRef = AF6C661C1638E51200776F91 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		AFCB793916392FA400EF8E1B /* libUGAPI.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libUGAPI.a;
+			remoteRef = AFCB793816392FA400EF8E1B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -389,10 +428,10 @@
 			target = AF6C659F1638D48700776F91 /* baas.io-sdk */;
 			targetProxy = AF6C65B71638D48700776F91 /* PBXContainerItemProxy */;
 		};
-		AF6C661F1638E51D00776F91 /* PBXTargetDependency */ = {
+		AFCB793B16392FA700EF8E1B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = UGAPIApp;
-			targetProxy = AF6C661E1638E51D00776F91 /* PBXContainerItemProxy */;
+			name = UGAPI;
+			targetProxy = AFCB793A16392FA700EF8E1B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -458,9 +497,17 @@
 		AF6C65C61638D48700776F91 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv6,
+					i386,
+				);
 				DSTROOT = /tmp/baas_io_sdk.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "baas.io-sdk/baas.io-sdk-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/UGAPI";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -470,9 +517,17 @@
 		AF6C65C71638D48700776F91 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv6,
+					i386,
+				);
 				DSTROOT = /tmp/baas_io_sdk.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "baas.io-sdk/baas.io-sdk-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/UGAPI";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
