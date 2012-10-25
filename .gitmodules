@@ -1,0 +1,6 @@
+[submodule "submodules/usergrid-ios-sdk"]
+	path = submodules/usergrid-ios-sdk
+	url = https://github.com/kthcorp/usergrid-ios-sdk
+[submodule "submodules/AFNetworking"]
+	path = submodules/AFNetworking
+	url = git://github.com/AFNetworking/AFNetworking.git
