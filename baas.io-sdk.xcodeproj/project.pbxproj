@@ -11,11 +11,19 @@
 		AF6C65A91638D48700776F91 /* baas_io_sdk.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF6C65A81638D48700776F91 /* baas_io_sdk.h */; };
 		AF6C65AB1638D48700776F91 /* baas_io_sdk.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6C65AA1638D48700776F91 /* baas_io_sdk.m */; };
 		AF6C65B31638D48700776F91 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF6C65B21638D48700776F91 /* SenTestingKit.framework */; };
-		AF6C65B51638D48700776F91 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF6C65B41638D48700776F91 /* UIKit.framework */; };
 		AF6C65B61638D48700776F91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF6C65A31638D48700776F91 /* Foundation.framework */; };
 		AF6C65B91638D48700776F91 /* libbaas.io-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF6C65A01638D48700776F91 /* libbaas.io-sdk.a */; };
 		AF6C65BF1638D48700776F91 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AF6C65BD1638D48700776F91 /* InfoPlist.strings */; };
 		AF6C65C21638D48700776F91 /* baas_io_sdkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6C65C11638D48700776F91 /* baas_io_sdkTests.m */; };
+		AF6C65E31638D56400776F91 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6C65D11638D56400776F91 /* AFHTTPClient.m */; };
+		AF6C65E41638D56400776F91 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6C65D31638D56400776F91 /* AFHTTPRequestOperation.m */; };
+		AF6C65E51638D56400776F91 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6C65D51638D56400776F91 /* AFImageRequestOperation.m */; };
+		AF6C65E61638D56400776F91 /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6C65D71638D56400776F91 /* AFJSONRequestOperation.m */; };
+		AF6C65E71638D56400776F91 /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6C65D91638D56400776F91 /* AFNetworkActivityIndicatorManager.m */; };
+		AF6C65E81638D56400776F91 /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6C65DC1638D56400776F91 /* AFPropertyListRequestOperation.m */; };
+		AF6C65E91638D56400776F91 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6C65DE1638D56400776F91 /* AFURLConnectionOperation.m */; };
+		AF6C65EA1638D56400776F91 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6C65E01638D56400776F91 /* AFXMLRequestOperation.m */; };
+		AF6C65EB1638D56400776F91 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6C65E21638D56400776F91 /* UIImageView+AFNetworking.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +33,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = AF6C659F1638D48700776F91;
 			remoteInfo = "baas.io-sdk";
+		};
+		AF6C661A1638E51200776F91 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF6C66111638E51200776F91 /* UGAPIApp.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E89D6C9C150E5B2E005F5FB9;
+			remoteInfo = UGAPIApp;
+		};
+		AF6C661C1638E51200776F91 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF6C66111638E51200776F91 /* UGAPIApp.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E89D6CC0150E5B2E005F5FB9;
+			remoteInfo = UGAPIAppTests;
+		};
+		AF6C661E1638E51D00776F91 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AF6C66111638E51200776F91 /* UGAPIApp.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E89D6C9B150E5B2E005F5FB9;
+			remoteInfo = UGAPIApp;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -49,11 +78,30 @@
 		AF6C65AA1638D48700776F91 /* baas_io_sdk.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = baas_io_sdk.m; sourceTree = "<group>"; };
 		AF6C65B11638D48700776F91 /* baas.io-sdkTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "baas.io-sdkTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF6C65B21638D48700776F91 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		AF6C65B41638D48700776F91 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		AF6C65BC1638D48700776F91 /* baas.io-sdkTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "baas.io-sdkTests-Info.plist"; sourceTree = "<group>"; };
 		AF6C65BE1638D48700776F91 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AF6C65C01638D48700776F91 /* baas_io_sdkTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = baas_io_sdkTests.h; sourceTree = "<group>"; };
 		AF6C65C11638D48700776F91 /* baas_io_sdkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = baas_io_sdkTests.m; sourceTree = "<group>"; };
+		AF6C65D01638D56400776F91 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPClient.h; path = submodules/AFNetworking/AFNetworking/AFHTTPClient.h; sourceTree = "<group>"; };
+		AF6C65D11638D56400776F91 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFHTTPClient.m; path = submodules/AFNetworking/AFNetworking/AFHTTPClient.m; sourceTree = "<group>"; };
+		AF6C65D21638D56400776F91 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperation.h; path = submodules/AFNetworking/AFNetworking/AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		AF6C65D31638D56400776F91 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFHTTPRequestOperation.m; path = submodules/AFNetworking/AFNetworking/AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		AF6C65D41638D56400776F91 /* AFImageRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFImageRequestOperation.h; path = submodules/AFNetworking/AFNetworking/AFImageRequestOperation.h; sourceTree = "<group>"; };
+		AF6C65D51638D56400776F91 /* AFImageRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFImageRequestOperation.m; path = submodules/AFNetworking/AFNetworking/AFImageRequestOperation.m; sourceTree = "<group>"; };
+		AF6C65D61638D56400776F91 /* AFJSONRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFJSONRequestOperation.h; path = submodules/AFNetworking/AFNetworking/AFJSONRequestOperation.h; sourceTree = "<group>"; };
+		AF6C65D71638D56400776F91 /* AFJSONRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFJSONRequestOperation.m; path = submodules/AFNetworking/AFNetworking/AFJSONRequestOperation.m; sourceTree = "<group>"; };
+		AF6C65D81638D56400776F91 /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFNetworkActivityIndicatorManager.h; path = submodules/AFNetworking/AFNetworking/AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
+		AF6C65D91638D56400776F91 /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFNetworkActivityIndicatorManager.m; path = submodules/AFNetworking/AFNetworking/AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
+		AF6C65DA1638D56400776F91 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFNetworking.h; path = submodules/AFNetworking/AFNetworking/AFNetworking.h; sourceTree = "<group>"; };
+		AF6C65DB1638D56400776F91 /* AFPropertyListRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFPropertyListRequestOperation.h; path = submodules/AFNetworking/AFNetworking/AFPropertyListRequestOperation.h; sourceTree = "<group>"; };
+		AF6C65DC1638D56400776F91 /* AFPropertyListRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFPropertyListRequestOperation.m; path = submodules/AFNetworking/AFNetworking/AFPropertyListRequestOperation.m; sourceTree = "<group>"; };
+		AF6C65DD1638D56400776F91 /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFURLConnectionOperation.h; path = submodules/AFNetworking/AFNetworking/AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		AF6C65DE1638D56400776F91 /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFURLConnectionOperation.m; path = submodules/AFNetworking/AFNetworking/AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		AF6C65DF1638D56400776F91 /* AFXMLRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFXMLRequestOperation.h; path = submodules/AFNetworking/AFNetworking/AFXMLRequestOperation.h; sourceTree = "<group>"; };
+		AF6C65E01638D56400776F91 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFXMLRequestOperation.m; path = submodules/AFNetworking/AFNetworking/AFXMLRequestOperation.m; sourceTree = "<group>"; };
+		AF6C65E11638D56400776F91 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+AFNetworking.h"; path = "submodules/AFNetworking/AFNetworking/UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
+		AF6C65E21638D56400776F91 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "submodules/AFNetworking/AFNetworking/UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		AF6C66111638E51200776F91 /* UGAPIApp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UGAPIApp.xcodeproj; path = "submodules/usergrid-ios-sdk/UGAPIApp.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +118,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF6C65B31638D48700776F91 /* SenTestingKit.framework in Frameworks */,
-				AF6C65B51638D48700776F91 /* UIKit.framework in Frameworks */,
 				AF6C65B61638D48700776F91 /* Foundation.framework in Frameworks */,
 				AF6C65B91638D48700776F91 /* libbaas.io-sdk.a in Frameworks */,
 			);
@@ -82,6 +129,7 @@
 		AF6C65951638D48700776F91 = {
 			isa = PBXGroup;
 			children = (
+				AF6C66111638E51200776F91 /* UGAPIApp.xcodeproj */,
 				AF6C65A51638D48700776F91 /* baas.io-sdk */,
 				AF6C65BA1638D48700776F91 /* baas.io-sdkTests */,
 				AF6C65A21638D48700776F91 /* Frameworks */,
@@ -101,9 +149,9 @@
 		AF6C65A21638D48700776F91 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AF6C65CE1638D54E00776F91 /* AFNetworking */,
 				AF6C65A31638D48700776F91 /* Foundation.framework */,
 				AF6C65B21638D48700776F91 /* SenTestingKit.framework */,
-				AF6C65B41638D48700776F91 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -145,6 +193,41 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		AF6C65CE1638D54E00776F91 /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				AF6C65D01638D56400776F91 /* AFHTTPClient.h */,
+				AF6C65D11638D56400776F91 /* AFHTTPClient.m */,
+				AF6C65D21638D56400776F91 /* AFHTTPRequestOperation.h */,
+				AF6C65D31638D56400776F91 /* AFHTTPRequestOperation.m */,
+				AF6C65D41638D56400776F91 /* AFImageRequestOperation.h */,
+				AF6C65D51638D56400776F91 /* AFImageRequestOperation.m */,
+				AF6C65D61638D56400776F91 /* AFJSONRequestOperation.h */,
+				AF6C65D71638D56400776F91 /* AFJSONRequestOperation.m */,
+				AF6C65D81638D56400776F91 /* AFNetworkActivityIndicatorManager.h */,
+				AF6C65D91638D56400776F91 /* AFNetworkActivityIndicatorManager.m */,
+				AF6C65DA1638D56400776F91 /* AFNetworking.h */,
+				AF6C65DB1638D56400776F91 /* AFPropertyListRequestOperation.h */,
+				AF6C65DC1638D56400776F91 /* AFPropertyListRequestOperation.m */,
+				AF6C65DD1638D56400776F91 /* AFURLConnectionOperation.h */,
+				AF6C65DE1638D56400776F91 /* AFURLConnectionOperation.m */,
+				AF6C65DF1638D56400776F91 /* AFXMLRequestOperation.h */,
+				AF6C65E01638D56400776F91 /* AFXMLRequestOperation.m */,
+				AF6C65E11638D56400776F91 /* UIImageView+AFNetworking.h */,
+				AF6C65E21638D56400776F91 /* UIImageView+AFNetworking.m */,
+			);
+			name = AFNetworking;
+			sourceTree = "<group>";
+		};
+		AF6C66121638E51200776F91 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AF6C661B1638E51200776F91 /* UGAPIApp.app */,
+				AF6C661D1638E51200776F91 /* UGAPIAppTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -159,6 +242,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				AF6C661F1638E51D00776F91 /* PBXTargetDependency */,
 			);
 			name = "baas.io-sdk";
 			productName = "baas.io-sdk";
@@ -203,6 +287,12 @@
 			mainGroup = AF6C65951638D48700776F91;
 			productRefGroup = AF6C65A11638D48700776F91 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = AF6C66121638E51200776F91 /* Products */;
+					ProjectRef = AF6C66111638E51200776F91 /* UGAPIApp.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				AF6C659F1638D48700776F91 /* baas.io-sdk */,
@@ -210,6 +300,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		AF6C661B1638E51200776F91 /* UGAPIApp.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = UGAPIApp.app;
+			remoteRef = AF6C661A1638E51200776F91 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AF6C661D1638E51200776F91 /* UGAPIAppTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = UGAPIAppTests.octest;
+			remoteRef = AF6C661C1638E51200776F91 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		AF6C65AE1638D48700776F91 /* Resources */ = {
@@ -244,6 +351,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF6C65AB1638D48700776F91 /* baas_io_sdk.m in Sources */,
+				AF6C65E31638D56400776F91 /* AFHTTPClient.m in Sources */,
+				AF6C65E41638D56400776F91 /* AFHTTPRequestOperation.m in Sources */,
+				AF6C65E51638D56400776F91 /* AFImageRequestOperation.m in Sources */,
+				AF6C65E61638D56400776F91 /* AFJSONRequestOperation.m in Sources */,
+				AF6C65E71638D56400776F91 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				AF6C65E81638D56400776F91 /* AFPropertyListRequestOperation.m in Sources */,
+				AF6C65E91638D56400776F91 /* AFURLConnectionOperation.m in Sources */,
+				AF6C65EA1638D56400776F91 /* AFXMLRequestOperation.m in Sources */,
+				AF6C65EB1638D56400776F91 /* UIImageView+AFNetworking.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +378,11 @@
 			isa = PBXTargetDependency;
 			target = AF6C659F1638D48700776F91 /* baas.io-sdk */;
 			targetProxy = AF6C65B71638D48700776F91 /* PBXContainerItemProxy */;
+		};
+		AF6C661F1638E51D00776F91 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = UGAPIApp;
+			targetProxy = AF6C661E1638E51D00776F91 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -397,6 +518,7 @@
 				AF6C65C71638D48700776F91 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AF6C65C81638D48700776F91 /* Build configuration list for PBXNativeTarget "baas.io-sdkTests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +527,7 @@
 				AF6C65CA1638D48700776F91 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
