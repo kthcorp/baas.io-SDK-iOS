@@ -19,7 +19,7 @@ static NSString * _applicationName;
 static NSString * _orgName;
 
 + (void)setApplicationInfo:(NSString *)orgName applicationName:(NSString *)applicationName{
-    _apiURL = @"https://stgapi.baas.io/";
+    _apiURL = @"https://stgapi.baas.io";
     _applicationName = applicationName;
     _orgName = orgName;
 }
@@ -29,17 +29,18 @@ static NSString * _orgName;
     [BaasClient setApplicationInfo:orgName applicationName:applicationName];
 }
 
+//static BaasClient *instance = nil;
 + (id) createInstance{
     NSString *path = [NSString stringWithFormat:@"%@/%@/%@", _apiURL, _applicationName, _orgName];
-    BaasClient *baasIO = [[BaasClient alloc] initWithURL:path];
+    BaasClient *baasIO = [[BaasClient alloc] initWithApplicationID:path withBaseURL:_apiURL];
     return baasIO;
 }
 
--(id)initWithURL:(NSString *)path
+-(id)initWithApplicationID:(NSString *)applicationID withBaseURL:(NSString*)baseURL
 {
     if (self = [super init])
     {
-        _client = [[UGClient alloc] initWithApplicationID:path];
+        _client = [[UGClient alloc] initWithApplicationID:applicationID baseURL:baseURL];
     }
     return self;
 }
@@ -49,7 +50,7 @@ static NSString * _orgName;
 }
 
 -(void) setAuth:(NSString *)auth{
-    return; [_client setAuth:auth];
+    return [_client setAuth:auth];
 }
 
 /*************************** LOGIN / LOGOUT ****************************/
@@ -101,7 +102,7 @@ static NSString * _orgName;
     return (BaasIOResponse*)[_client getGroupsForUser:userID];
 }
 
--(BaasIOResponse *)getUsers: (UGQuery *)query
+-(BaasIOResponse *)getUsers: (BaasQuery *)query
 {
     return (BaasIOResponse*)[_client getUsers:query];
 }
@@ -114,7 +115,7 @@ static NSString * _orgName;
     return (BaasIOResponse*)[_client createEntity:newEntity];
 }
 
--(BaasIOResponse *)getEntities: (NSString *)type query:(UGQuery *)query
+-(BaasIOResponse *)getEntities: (NSString *)type query:(BaasQuery *)query
 {
     return (BaasIOResponse*)[_client getEntities:type query:query];
 }
@@ -176,17 +177,23 @@ static NSString * _orgName;
     return [self httpTransaction:url op:kUGHTTPDelete opData:nil];
 }
 
-//Gateway method
+
+-(void)setLogging: (BOOL)loggingState{
+    [_client setLogging:loggingState];
+}
+
+#pragma mark - Gateway method
+
 -(BaasIOResponse *)httpTransaction:(NSString *)url op:(NSInteger)op opData:(NSString *)opData{
-    return objc_msgSend(_client, @selector(_cmd), url, op, opData);
+    return objc_msgSend(_client, @selector(httpTransaction:op:opData:), url, op, opData);
 }
 
 - (NSString *)createURL:(NSString *)append append2:(NSString *)append2 {
-    return [_client performSelector:@selector(_cmd) withObject:append withObject:append2];
+    return [_client performSelector:@selector(createURL:append2:) withObject:append withObject:append2];
 }
 
 - (NSString *)createURL:(NSString *)append append2:(NSString *)append2 append3:(NSString *)append3 {
-    return objc_msgSend(_client, @selector(_cmd), append, append2, append3);
+    return objc_msgSend(_client, @selector(createURL:append2:append3:), append, append2, append3);
 }
 
 @end

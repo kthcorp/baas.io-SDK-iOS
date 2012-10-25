@@ -15,8 +15,8 @@
 + (void)setApplicationInfo:(NSString *)orgName applicationName:(NSString *)applicationName;
 + (void)setApplicationInfo:(NSString *)apiURL organizationName:(NSString *)orgName applicationName:(NSString *)applicationName;
 + (id) createInstance;
--(BOOL) setDelegate:(id)delegate;
--(void)setAuth:(NSString *)auth;
+- (BOOL)setDelegate:(id)delegate;
+- (void)setAuth:(NSString *)auth;
 
 /********************* LOGIN / LOGOUT *********************/
 // log in with the given username and password
@@ -50,7 +50,7 @@
 -(BaasIOResponse *)createEntity: (NSDictionary *)newEntity;
 
 // get a list of entities that meet the specified query.
--(BaasIOResponse *)getEntities: (NSString *)type query:(UGQuery *)query;
+-(BaasIOResponse *)getEntities: (NSString *)type query:(BaasQuery *)query;
 
 // updates an entity (it knows the type from the entity data)
 -(BaasIOResponse *)updateEntity: (NSString *)entityID entity:(NSDictionary *)updatedEntity;
