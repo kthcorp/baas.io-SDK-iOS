@@ -1,13 +1,13 @@
 //
-//  baas_io_sdk.m
+//  BaasQuery.h
 //  baas.io-sdk
 //
 //  Created by cetauri on 12. 10. 25..
 //  Copyright (c) 2012년 kth. All rights reserved.
 //
 
-#import "baas_io_sdk.h"
+#import "UGQuery.h"
 
-@implementation baas_io_sdk
+@interface BaasQuery : UGQuery
 
 @end
