@@ -9,6 +9,7 @@
 #import "UGClient.h"
 #import "UGHTTPManager.h"
 #import "JSONKit.h"
+#import <objc/message.h>
 
 @implementation BaasClient {
     UGClient *_client;
