@@ -4,3 +4,6 @@
 [submodule "submodules/AFNetworking"]
 	path = submodules/AFNetworking
 	url = git://github.com/AFNetworking/AFNetworking.git
+[submodule "submodules/JSONKit"]
+	path = submodules/JSONKit
+	url = git://github.com/johnezang/JSONKit.git
