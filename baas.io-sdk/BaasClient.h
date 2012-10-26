@@ -47,16 +47,16 @@
 
 /******************** ENTITY MANAGEMENT ********************/
 // adds an entity to the specified collection.
--(BaasIOResponse *)createEntity: (NSDictionary *)newEntity;
+-(BaasIOResponse *)createEntity: (NSString *)entityName entity:(NSDictionary *)newEntity;
 
 // get a list of entities that meet the specified query.
--(BaasIOResponse *)getEntities: (NSString *)type query:(BaasQuery *)query;
+-(BaasIOResponse *)getEntities: (NSString *)entityName query:(BaasQuery *)query;
 
 // updates an entity (it knows the type from the entity data)
--(BaasIOResponse *)updateEntity: (NSString *)entityID entity:(NSDictionary *)updatedEntity;
+-(BaasIOResponse *)updateEntity: (NSString *)entityName entityID:(NSString *)entityID entity:(NSDictionary *)updatedEntity;
 
-// removes an entity of the specified type
--(BaasIOResponse *)removeEntity: (NSString *)type entityID:(NSString *)entityID;
+// removes an entity of the specified entityName
+-(BaasIOResponse *)removeEntity: (NSString *)entityName entityID:(NSString *)entityID;
 
 /********************* PUSH NOTIFICATION MANAGEMENT *********************/
 - (BaasIOResponse *)registerDevice:(NSString *)token tags:(NSArray *)tags;

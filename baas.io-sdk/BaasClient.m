@@ -32,7 +32,7 @@ static NSString * _orgName;
 
 //static BaasClient *instance = nil;
 + (id) createInstance{
-    NSString *path = [NSString stringWithFormat:@"%@/%@/%@", _apiURL, _applicationName, _orgName];
+    NSString *path = [NSString stringWithFormat:@"%@/%@", _orgName, _applicationName];
     BaasClient *baasIO = [[BaasClient alloc] initWithApplicationID:path withBaseURL:_apiURL];
     return baasIO;
 }
@@ -111,24 +111,28 @@ static NSString * _orgName;
 
 /******************** ENTITY MANAGEMENT ********************/
 
--(BaasIOResponse *)createEntity:(NSDictionary *)newEntity
+-(BaasIOResponse *)createEntity: (NSString *)entityName entity:(NSDictionary *)newEntity
 {
-    return (BaasIOResponse*)[_client createEntity:newEntity];
+    NSMutableDictionary *entity = [NSMutableDictionary dictionaryWithDictionary:newEntity];
+    [entity setObject:entityName forKey:@"type"];
+    return (BaasIOResponse*)[_client createEntity:entity];
 }
 
--(BaasIOResponse *)getEntities: (NSString *)type query:(BaasQuery *)query
+-(BaasIOResponse *)getEntities: (NSString *)entityName query:(BaasQuery *)query
 {
-    return (BaasIOResponse*)[_client getEntities:type query:query];
+    return (BaasIOResponse*) [_client getEntities:entityName query:query];
 }
 
--(BaasIOResponse *)updateEntity: (NSString *)entityID entity:(NSDictionary *)updatedEntity
+-(BaasIOResponse *)updateEntity: (NSString *)entityName entityID:(NSString *)entityID entity:(NSDictionary *)updatedEntity
 {
-    return (BaasIOResponse*)[_client updateEntity:entityID entity:updatedEntity];
+    NSMutableDictionary *entity = [NSMutableDictionary dictionaryWithDictionary:updatedEntity];
+    [entity setObject:entityName forKey:@"type"];
+    return (BaasIOResponse*)[_client updateEntity:entityID entity:entity];
 }
 
--(BaasIOResponse *)removeEntity: (NSString *)type entityID:(NSString *)entityID
+-(BaasIOResponse *)removeEntity: (NSString *)entityName entityID:(NSString *)entityID
 {
-    return (BaasIOResponse*)[_client removeEntity:type entityID:entityID];
+    return (BaasIOResponse*) [_client removeEntity:entityName entityID:entityID];
 }
 
 
