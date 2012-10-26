@@ -14,20 +14,20 @@
 static NSString *access_token;
 - (void)setUp
 {
-    access_token = @"YWMtxlrjJh6dEeKpGgIATUUAVAAAATqdAFbsIc_q2Ndcv3BVZQ1GgCBeo06bpf4";
+//    access_token = @"YWMtxlrjJh6dEeKpGgIATUUAVAAAATqdAFbsIc_q2Ndcv3BVZQ1GgCBeo06bpf4";
     [BaasClient setApplicationInfo:@"test.file" applicationName:@"bropbox"];
 }
 
-//- (void)test1_Login
-//{
-//    BaasClient *client = [BaasClient createInstance];
-////    [client setDelegate:self];
-//    [client setLogging:YES];
-//    BaasIOResponse *response = [client logInUser:@"test" password:@"test"];
-//
-//    NSLog(@"response : %@", response.response);
-//    access_token = [response.response objectForKey:@"access_token"];
-//}
+- (void)test1_Login
+{
+    BaasClient *client = [BaasClient createInstance];
+//    [client setDelegate:self];
+    [client setLogging:YES];
+    BaasIOResponse *response = [client logInUser:@"test" password:@"test"];
+
+    NSLog(@"response : %@", response.response);
+    access_token = [response.response objectForKey:@"access_token"];
+}
 //
 //
 //- (void)test2_CreateEntity
@@ -37,23 +37,24 @@ static NSString *access_token;
 ////    [client setDelegate:self];
 //    [client setLogging:YES];
 //
-//    BaasIOResponse *response = [client createEntity:@{@"key" : @"value2", @"type": @"test"}];
+//    BaasIOResponse *response = [client createEntity:@"test" entity:@{@"key" : @"value2"}];
 //    NSLog(@"response : %@", response.rawResponse);
 //}
+
+
+- (void)test3_updateEntity
+{
+    BaasClient *client = [BaasClient createInstance];
+    [client setAuth:access_token];
+    //    [client setDelegate:self];
+    [client setLogging:YES];
+    
+    BaasIOResponse *response = [client updateEntity:@"test" entityID:@"d210eef6-1f17-11e2-a91a-02004d450054" entity:@{@"key" : @"value3"}];
+    NSLog(@"response : %@", response.rawResponse);
+}
+
 //
-//
-//- (void)test3_removeEntity
-//{
-//    BaasClient *client = [BaasClient createInstance];
-//    [client setAuth:access_token];
-////    [client setDelegate:self];
-//    [client setLogging:YES];
-//
-//    BaasIOResponse *response = [client removeEntity:@"test" entityID:@"a624268c-1e9a-11e2-a91a-02004d450054"];
-//    NSLog(@"response : %@", response.rawResponse);
-//}
-//
-//- (void)test4_readEntity
+//- (void)test5_readEntity
 //{
 //    BaasClient *client = [BaasClient createInstance];
 //    
@@ -68,28 +69,41 @@ static NSString *access_token;
 //    BaasIOResponse *response = [client getEntities:@"test" query:query];
 //    NSLog(@"response : %@", response.rawResponse);
 //}
-- (void)test5_registerDevice
-{
-    BaasClient *client = [BaasClient createInstance];
-    
-    [client setAuth:access_token];
-    //    [client setDelegate:self];
-    [client setLogging:YES];
-    
-    BaasIOResponse *response = [client registerDevice:@"test" tags:@[@"a",@"b"]];
-    NSLog(@"response : %@", response.rawResponse);
-}
 
-- (void)test6_unregisterDevice
-{
-    BaasClient *client = [BaasClient createInstance];
-    
-    [client setAuth:access_token];
-    //    [client setDelegate:self];
-    [client setLogging:YES];
-    
-    BaasIOResponse *response = [client unregisterDevice:@"test"];
-    NSLog(@"response : %@", response.rawResponse);
-}
+
+//
+//- (void)test6_removeEntity
+//{
+//    BaasClient *client = [BaasClient createInstance];
+//    [client setAuth:access_token];
+////    [client setDelegate:self];
+//    [client setLogging:YES];
+//
+//    BaasIOResponse *response = [client removeEntity:@"test" entityID:@"a624268c-1e9a-11e2-a91a-02004d450054"];
+//    NSLog(@"response : %@", response.rawResponse);
+//}
+//- (void)test5_registerDevice
+//{
+//    BaasClient *client = [BaasClient createInstance];
+//    
+//    [client setAuth:access_token];
+//    //    [client setDelegate:self];
+//    [client setLogging:YES];
+//    
+//    BaasIOResponse *response = [client registerDevice:@"test" tags:@[@"a",@"b"]];
+//    NSLog(@"response : %@", response.rawResponse);
+//}
+//
+//- (void)test7_unregisterDevice
+//{
+//    BaasClient *client = [BaasClient createInstance];
+//    
+//    [client setAuth:access_token];
+//    //    [client setDelegate:self];
+//    [client setLogging:YES];
+//    
+//    BaasIOResponse *response = [client unregisterDevice:@"test"];
+//    NSLog(@"response : %@", response.rawResponse);
+//}
 
 @end
