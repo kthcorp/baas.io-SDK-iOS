@@ -15,8 +15,12 @@
 + (void)setApplicationInfo:(NSString *)orgName applicationName:(NSString *)applicationName;
 + (void)setApplicationInfo:(NSString *)apiURL organizationName:(NSString *)orgName applicationName:(NSString *)applicationName;
 + (id) createInstance;
+- (NSString *)getAppInfo;
+- (NSString *)getAPIURL;
+- (NSString *)getAPIHost;
 - (BOOL)setDelegate:(id)delegate;
 - (void)setAuth:(NSString *)auth;
+- (NSString *)getAccessToken;
 
 /********************* LOGIN / LOGOUT *********************/
 // log in with the given username and password
@@ -62,6 +66,26 @@
 - (BaasIOResponse *)registerDevice:(NSString *)token tags:(NSArray *)tags;
 - (BaasIOResponse *)unregisterDevice:(NSString *)uuid;
 
+/************* File MANAGEMENT *************/
+-(void)download:(NSString *)url
+           path:(NSString*)path
+   successBlock:(void (^)(NSDictionary *response))successBlock
+   failureBlock:(void (^)(NSError *error))failureBlock
+  progressBlock:(void (^)(float progress))progressBlock;
+
+-(void)upload:(NSData *)data
+ successBlock:(void (^)(NSDictionary *response))successBlock
+ failureBlock:(void (^)(NSError *error))failureBlock
+progressBlock:(void (^)(float progress))progressBlock;
+
+-(void)reUpload:(NSData *)data
+   successBlock:(void (^)(NSDictionary *response))successBlock
+   failureBlock:(void (^)(NSError *error))failureBlock
+  progressBlock:(void (^)(float progress))progressBlock;
+
+-(void)delete:(NSString *)uuid
+successBlock:(void (^)(NSDictionary *response))successBlock
+failureBlock:(void (^)(NSError *error))failureBlock;
 
 /*********************** DEBUGGING ASSISTANCE ************************/
 -(void)setLogging: (BOOL)loggingState;

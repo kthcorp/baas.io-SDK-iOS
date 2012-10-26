@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF5A3585163A35C200838A81 /* FileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = AF5A3584163A35C200838A81 /* FileUtils.m */; };
 		AF6C65A41638D48700776F91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF6C65A31638D48700776F91 /* Foundation.framework */; };
 		AF6C65B31638D48700776F91 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF6C65B21638D48700776F91 /* SenTestingKit.framework */; };
 		AF6C65B61638D48700776F91 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF6C65A31638D48700776F91 /* Foundation.framework */; };
@@ -87,6 +88,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AF5A3583163A35C200838A81 /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtils.h; sourceTree = "<group>"; };
+		AF5A3584163A35C200838A81 /* FileUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUtils.m; sourceTree = "<group>"; };
 		AF6C65A01638D48700776F91 /* libbaas.io-sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libbaas.io-sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF6C65A31638D48700776F91 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AF6C65A71638D48700776F91 /* baas.io-sdk-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "baas.io-sdk-Prefix.pch"; sourceTree = "<group>"; };
@@ -186,6 +189,8 @@
 		AF6C65A51638D48700776F91 /* baas.io-sdk */ = {
 			isa = PBXGroup;
 			children = (
+				AF5A3583163A35C200838A81 /* FileUtils.h */,
+				AF5A3584163A35C200838A81 /* FileUtils.m */,
 				AFCB792816392ECA00EF8E1B /* BaasClient.h */,
 				AFCB792916392ECA00EF8E1B /* BaasClient.m */,
 				AFCB792B16392ECA00EF8E1B /* BaasIOResponse.h */,
@@ -409,6 +414,7 @@
 				AFCB792F16392ECA00EF8E1B /* BaasClient.m in Sources */,
 				AFCB793116392ECA00EF8E1B /* BaasIOResponse.m in Sources */,
 				AFCB793216392ECA00EF8E1B /* BaasQuery.m in Sources */,
+				AF5A3585163A35C200838A81 /* FileUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

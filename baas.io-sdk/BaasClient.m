@@ -9,6 +9,7 @@
 #import "UGClient.h"
 #import "UGHTTPManager.h"
 #import "JSONKit.h"
+#import "FileUtils.h"
 #import <objc/message.h>
 
 @implementation BaasClient {
@@ -32,15 +33,28 @@ static NSString * _orgName;
 
 //static BaasClient *instance = nil;
 + (id) createInstance{
-    NSString *path = [NSString stringWithFormat:@"%@/%@", _orgName, _applicationName];
-    BaasClient *baasIO = [[BaasClient alloc] initWithApplicationID:path withBaseURL:_apiURL];
+    BaasClient *baasIO = [[BaasClient alloc] init];
     return baasIO;
 }
 
--(id)initWithApplicationID:(NSString *)applicationID withBaseURL:(NSString*)baseURL
+- (NSString *)getAppInfo{
+    NSString *info = [NSString stringWithFormat:@"%@/%@", _orgName, _applicationName];
+    return info;
+}
+
+- (NSString *)getAPIURL{
+    return [NSString stringWithFormat:@"%@/%@", self.getAPIHost, self.getAppInfo];
+}
+
+- (NSString *)getAPIHost{
+    return _apiURL;
+}
+-(id)init
 {
     if (self = [super init])
     {
+        NSString *applicationID = [self getAppInfo];
+        NSString *baseURL = [self getAPIURL];
         _client = [[UGClient alloc] initWithApplicationID:applicationID baseURL:baseURL];
     }
     return self;
@@ -54,6 +68,9 @@ static NSString * _orgName;
     return [_client setAuth:auth];
 }
 
+-(NSString *) getAccessToken{
+    return [_client getAccessToken];
+}
 /*************************** LOGIN / LOGOUT ****************************/
 
 -(BaasIOResponse *)logInUser: (NSString *)userName password:(NSString *)password
@@ -182,6 +199,53 @@ static NSString * _orgName;
     return [self httpTransaction:url op:kUGHTTPDelete opData:nil];
 }
 
+/************* File MANAGEMENT *************/
+-(void)download:(NSString *)url
+           path:(NSString*)path
+   successBlock:(void (^)(NSDictionary *response))successBlock
+   failureBlock:(void (^)(NSError *error))failureBlock
+  progressBlock:(void (^)(float progress))progressBlock{
+
+    FileUtils *file = [[FileUtils alloc]initWithClient:self];
+    [file download:url
+              path:path
+      successBlock:successBlock
+      failureBlock:failureBlock
+     progressBlock:progressBlock];
+}
+
+-(void)upload:(NSData *)data
+ successBlock:(void (^)(NSDictionary *response))successBlock
+ failureBlock:(void (^)(NSError *error))failureBlock
+progressBlock:(void (^)(float progress))progressBlock
+{
+    FileUtils *file = [[FileUtils alloc]initWithClient:self];
+    [file upload:data
+    successBlock:successBlock
+    failureBlock:failureBlock
+   progressBlock:progressBlock];
+    
+}
+
+-(void)reUpload:(NSData *)data
+   successBlock:(void (^)(NSDictionary *response))successBlock
+   failureBlock:(void (^)(NSError *error))failureBlock
+  progressBlock:(void (^)(float progress))progressBlock{
+    FileUtils *file = [[FileUtils alloc]initWithClient:self];
+    [file reUpload:data
+    successBlock:successBlock
+    failureBlock:failureBlock
+   progressBlock:progressBlock];
+}
+
+-(void)delete:(NSString *)uuid
+ successBlock:(void (^)(NSDictionary *response))successBlock
+ failureBlock:(void (^)(NSError *error))failureBlock{
+    FileUtils *file = [[FileUtils alloc]initWithClient:self];
+    [file delete:uuid
+    successBlock:successBlock
+    failureBlock:failureBlock];
+}
 
 -(void)setLogging: (BOOL)loggingState{
     [_client setLogging:loggingState];

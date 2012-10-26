@@ -11,16 +11,16 @@
 #import "UGClient.h"
 
 @implementation FileUtils{
-    BaasClient *_client;
-    NSString *apiURL;
+    NSString *_access_token;
+    NSString *_apiURL;
 }
 
 -(id)initWithClient:(BaasClient *)client
 {
     if (self = [super init])
     {
-        _client = client;
-        apiURL = client.getAPIURL;
+        _access_token = client.getAccessToken;
+        _apiURL = client.getAPIURL;
     }
     return self;
 }
@@ -79,7 +79,7 @@
     [formatter setDateFormat:@"HHmmssSSS"];
     NSString *HHmmssSSS = [formatter stringFromDate:[NSDate date]];
     
-    NSString *path = [NSString stringWithFormat:@"%@/files/public/%@/%@/%@", apiURL, yyyymmdd, HHmmssSSS, [FileUtils uuid]];
+    NSString *path = [NSString stringWithFormat:@"%@/files/public/%@/%@/%@", _apiURL, yyyymmdd, HHmmssSSS, [FileUtils uuid]];
     NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:path]];
     [self addAuthorization:request];
     [request setHTTPMethod:method];
@@ -104,7 +104,7 @@
    successBlock:(void (^)(NSDictionary *response))successBlock
    failureBlock:(void (^)(NSError *error))failureBlock
 {
-    NSString *path = [NSString stringWithFormat:@"%@/files/%@", apiURL, uuid];
+    NSString *path = [NSString stringWithFormat:@"%@/files/%@", _apiURL, uuid];
     NSURL *nurl = [NSURL URLWithString:path];
     NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:nurl];
     [request setHTTPMethod:@"DELETE"];
@@ -122,9 +122,8 @@
 
 #pragma mark - private method
 - (void)addAuthorization:(NSMutableURLRequest *)request{
-    NSString *access_token = [_client getAccessToken];
-    if (access_token != nil && ![access_token isEqualToString:@""]){
-        [request addValue:[NSString stringWithFormat:@"Bearer %@", access_token] forHTTPHeaderField:@"Authorization"];
+    if (_access_token != nil && ![_access_token isEqualToString:@""]){
+        [request addValue:[NSString stringWithFormat:@"Bearer %@", _access_token] forHTTPHeaderField:@"Authorization"];
     }
 }
 
