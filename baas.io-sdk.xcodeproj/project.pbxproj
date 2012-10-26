@@ -24,6 +24,7 @@
 		AF6C65EA1638D56400776F91 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6C65E01638D56400776F91 /* AFXMLRequestOperation.m */; };
 		AF6C65EB1638D56400776F91 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6C65E21638D56400776F91 /* UIImageView+AFNetworking.m */; };
 		AF705A0C16396E0100D88E29 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFACBBC416396D4700B13A29 /* UIKit.framework */; };
+		AF9F7E25163A6F0B00B43DB7 /* FileUtils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF5A3583163A35C200838A81 /* FileUtils.h */; };
 		AFACBBC516396D4700B13A29 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFACBBC416396D4700B13A29 /* UIKit.framework */; };
 		AFCB792F16392ECA00EF8E1B /* BaasClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCB792916392ECA00EF8E1B /* BaasClient.m */; };
 		AFCB793116392ECA00EF8E1B /* BaasIOResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCB792C16392ECA00EF8E1B /* BaasIOResponse.m */; };
@@ -79,6 +80,7 @@
 			dstPath = include;
 			dstSubfolderSpec = 16;
 			files = (
+				AF9F7E25163A6F0B00B43DB7 /* FileUtils.h in CopyFiles */,
 				AFCB7942163934E200EF8E1B /* BaasClient.h in CopyFiles */,
 				AFCB7943163934E200EF8E1B /* BaasIOResponse.h in CopyFiles */,
 				AFCB7944163934E200EF8E1B /* BaasQuery.h in CopyFiles */,
@@ -157,7 +159,6 @@
 		AF6C65951638D48700776F91 = {
 			isa = PBXGroup;
 			children = (
-				AFACBBC416396D4700B13A29 /* UIKit.framework */,
 				AF6C66111638E51200776F91 /* UGAPIApp.xcodeproj */,
 				AF6C65A51638D48700776F91 /* baas.io-sdk */,
 				AF6C65BA1638D48700776F91 /* baas.io-sdkTests */,
@@ -180,6 +181,7 @@
 			children = (
 				AFCB793E163930A900EF8E1B /* JSONKit */,
 				AF6C65CE1638D54E00776F91 /* AFNetworking */,
+				AFACBBC416396D4700B13A29 /* UIKit.framework */,
 				AF6C65A31638D48700776F91 /* Foundation.framework */,
 				AF6C65B21638D48700776F91 /* SenTestingKit.framework */,
 			);
@@ -511,7 +513,7 @@
 				DSTROOT = /tmp/baas_io_sdk.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "baas.io-sdk/baas.io-sdk-Prefix.pch";
-				HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/UGAPI";
+				HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/include";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
@@ -531,7 +533,7 @@
 				DSTROOT = /tmp/baas_io_sdk.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "baas.io-sdk/baas.io-sdk-Prefix.pch";
-				HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/UGAPI";
+				HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/include";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";

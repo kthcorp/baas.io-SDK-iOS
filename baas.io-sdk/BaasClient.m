@@ -22,13 +22,15 @@ static NSString * _orgName;
 
 + (void)setApplicationInfo:(NSString *)orgName applicationName:(NSString *)applicationName{
     _apiURL = @"https://stgapi.baas.io";
-    _applicationName = applicationName;
-    _orgName = orgName;
+    [BaasClient setApplicationInfo:_apiURL organizationName:orgName applicationName:applicationName];
+
 }
 
-+ (void)setApplicationInfo:(NSString *)apiURL organizationName:(NSString *)orgName applicationName:(NSString *)applicationName{
++ (void)setApplicationInfo:(NSString *)apiURL organizationName:(NSString *)orgName applicationName:(NSString *)applicationName
+{
     _apiURL = apiURL;
-    [BaasClient setApplicationInfo:orgName applicationName:applicationName];
+    _applicationName = applicationName;
+    _orgName = orgName;
 }
 
 //static BaasClient *instance = nil;
@@ -54,7 +56,7 @@ static NSString * _orgName;
     if (self = [super init])
     {
         NSString *applicationID = [self getAppInfo];
-        NSString *baseURL = [self getAPIURL];
+        NSString *baseURL = [self getAPIHost];
         _client = [[UGClient alloc] initWithApplicationID:applicationID baseURL:baseURL];
     }
     return self;
