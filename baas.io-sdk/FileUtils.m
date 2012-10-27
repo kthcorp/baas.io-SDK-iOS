@@ -25,6 +25,42 @@
     return self;
 }
 
+-(void)information:(void (^)(NSDictionary *response))successBlock
+      failureBlock:(void (^)(NSError *error))failureBlock
+{
+    NSString *url = [NSString stringWithFormat:@"%@/files/information", _apiURL];
+    NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"GET"];
+    [self addAuthorization:request];
+    
+    void (^success)(NSURLRequest *, NSHTTPURLResponse *, id) = [self success:successBlock];
+    void (^failure)(NSURLRequest *, NSHTTPURLResponse *, NSError *, id) = [self failure:failureBlock];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
+                                                                                        success:success
+                                                                                        failure:failure];
+    [operation start];
+}
+
+-(void)fileInformation:(NSString *)uuid
+          successBlock:(void (^)(NSDictionary *response))successBlock
+          failureBlock:(void (^)(NSError *error))failureBlock
+{
+    NSString *url = [NSString stringWithFormat:@"%@/files/%@", _apiURL, uuid];
+    NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"GET"];
+    [self addAuthorization:request];
+    
+    void (^success)(NSURLRequest *, NSHTTPURLResponse *, id) = [self success:successBlock];
+    void (^failure)(NSURLRequest *, NSHTTPURLResponse *, NSError *, id) = [self failure:failureBlock];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
+                                                                                        success:success
+                                                                                        failure:failure];
+    [operation start];
+}
+
+
 -(void)download:(NSString *)url
            path:(NSString*)path
    successBlock:(void (^)(NSDictionary *response))successBlock
@@ -51,26 +87,35 @@
     [operation start];
 }
 
--(void)upload:(NSData *)data
-        successBlock:(void (^)(NSDictionary *response))successBlock
-        failureBlock:(void (^)(NSError *error))failureBlock
-  progressBlock:(void (^)(float progress))progressBlock
-{
-    [self upload:data httpMethod:@"POST" successBlock:successBlock failureBlock:failureBlock progressBlock:progressBlock];
-}
-
--(void)reUpload:(NSData *)data
+-(void)reUpload:(NSString *)uuid
+           data:(NSData *)data
+         header:(NSDictionary*)header
    successBlock:(void (^)(NSDictionary *response))successBlock
    failureBlock:(void (^)(NSError *error))failureBlock
   progressBlock:(void (^)(float progress))progressBlock
 {
-    [self upload:data httpMethod:@"PUT" successBlock:successBlock failureBlock:failureBlock progressBlock:progressBlock];
+    NSString *url = [NSString stringWithFormat:@"%@/files/%@", _apiURL, uuid];
+    [self uploadWithData:url method:@"PUT" header:header data:data successBlock:successBlock failureBlock:failureBlock progressBlock:progressBlock];
 }
+
+
+-(void)upload:(NSString *)path
+         data:(NSData *)data
+       header:(NSDictionary*)header
+ successBlock:(void (^)(NSDictionary *response))successBlock
+ failureBlock:(void (^)(NSError *error))failureBlock
+progressBlock:(void (^)(float progress))progressBlock
+{
+    NSString *url = [NSString stringWithFormat:@"%@/files/%@", _apiURL, path];
+    [self uploadWithData:url method:@"POST" header:header data:data successBlock:successBlock failureBlock:failureBlock progressBlock:progressBlock];
+}
+
+
 -(void)upload:(NSData *)data
-   httpMethod:(NSString *)method
-        successBlock:(void (^)(NSDictionary *response))successBlock
-        failureBlock:(void (^)(NSError *error))failureBlock
-  progressBlock:(void (^)(float progress))progressBlock
+       header:(NSDictionary*)header
+ successBlock:(void (^)(NSDictionary *response))successBlock
+ failureBlock:(void (^)(NSError *error))failureBlock
+progressBlock:(void (^)(float progress))progressBlock
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     [formatter setDateFormat:@"yyyyMMdd"];
@@ -80,23 +125,35 @@
     NSString *HHmmssSSS = [formatter stringFromDate:[NSDate date]];
     
     NSString *path = [NSString stringWithFormat:@"%@/files/public/%@/%@/%@", _apiURL, yyyymmdd, HHmmssSSS, [FileUtils uuid]];
+    [self uploadWithData:path method:@"POST" header:header data:data successBlock:successBlock failureBlock:failureBlock progressBlock:progressBlock];
+}
+
+
+- (void)uploadWithData:(NSString *)path
+                method:(NSString *)method
+                header:(NSDictionary*)header
+                    data:(NSData *)data successBlock:(void (^)(NSDictionary *))successBlock
+            failureBlock:(void (^)(NSError *))failureBlock
+           progressBlock:(void (^)(float))progressBlock
+{
     NSMutableURLRequest *request =[NSMutableURLRequest requestWithURL:[NSURL URLWithString:path]];
+    [request setAllHTTPHeaderFields:header];
     [self addAuthorization:request];
     [request setHTTPMethod:method];
     [request setHTTPBody:data];
-
+    
     void (^success)(NSURLRequest *, NSHTTPURLResponse *, id) = [self success:successBlock];
     void (^failure)(NSURLRequest *, NSHTTPURLResponse *, NSError *, id) = [self failure:failureBlock];
-
+    
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
                                                                                         success:success
                                                                                         failure:failure];
-
+    
     [operation setUploadProgressBlock:^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite) {
         float progress = totalBytesWritten / totalBytesExpectedToWrite;
         progressBlock(progress);
     }];
-
+    
     [operation start];
 }
 

@@ -74,11 +74,22 @@
   progressBlock:(void (^)(float progress))progressBlock;
 
 -(void)upload:(NSData *)data
+       header:(NSDictionary*)header
  successBlock:(void (^)(NSDictionary *response))successBlock
  failureBlock:(void (^)(NSError *error))failureBlock
 progressBlock:(void (^)(float progress))progressBlock;
 
--(void)reUpload:(NSData *)data
+
+-(void)upload:(NSString *)path
+         data:(NSData *)data
+       header:(NSDictionary*)header
+ successBlock:(void (^)(NSDictionary *response))successBlock
+ failureBlock:(void (^)(NSError *error))failureBlock
+progressBlock:(void (^)(float progress))progressBlock;
+
+-(void)reUpload:(NSString *)uuid
+           data:(NSData*)data
+         header:(NSDictionary*)header
    successBlock:(void (^)(NSDictionary *response))successBlock
    failureBlock:(void (^)(NSError *error))failureBlock
   progressBlock:(void (^)(float progress))progressBlock;
@@ -86,6 +97,17 @@ progressBlock:(void (^)(float progress))progressBlock;
 -(void)delete:(NSString *)uuid
 successBlock:(void (^)(NSDictionary *response))successBlock
 failureBlock:(void (^)(NSError *error))failureBlock;
+
+-(void)fileInformation:(void (^)(NSDictionary *response))successBlock
+          failureBlock:(void (^)(NSError *error))failureBlock;
+
+-(void)fileInformation:(NSString *)uuid
+          successBlock:(void (^)(NSDictionary *response))successBlock
+          failureBlock:(void (^)(NSError *error))failureBlock;
+
+-(void)fileList:(NSString *)dir
+   successBlock:(void (^)(NSDictionary *response))successBlock
+   failureBlock:(void (^)(NSError *error))failureBlock;
 
 /*********************** DEBUGGING ASSISTANCE ************************/
 -(void)setLogging: (BOOL)loggingState;

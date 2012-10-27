@@ -217,27 +217,50 @@ static NSString * _orgName;
 }
 
 -(void)upload:(NSData *)data
+       header:(NSDictionary*)header
  successBlock:(void (^)(NSDictionary *response))successBlock
  failureBlock:(void (^)(NSError *error))failureBlock
 progressBlock:(void (^)(float progress))progressBlock
 {
     FileUtils *file = [[FileUtils alloc]initWithClient:self];
     [file upload:data
+          header:header
     successBlock:successBlock
     failureBlock:failureBlock
    progressBlock:progressBlock];
     
 }
 
--(void)reUpload:(NSData *)data
+-(void)upload:(NSString *)path
+         data:(NSData *)data
+       header:(NSDictionary*)header
+ successBlock:(void (^)(NSDictionary *response))successBlock
+ failureBlock:(void (^)(NSError *error))failureBlock
+progressBlock:(void (^)(float progress))progressBlock
+{
+    FileUtils *file = [[FileUtils alloc]initWithClient:self];
+    [file upload:path
+            data:data
+          header:header
+    successBlock:successBlock
+    failureBlock:failureBlock
+   progressBlock:progressBlock];
+}
+
+
+-(void)reUpload:(NSString *)uuid
+           data:(NSData*)data
+         header:(NSDictionary*)header
    successBlock:(void (^)(NSDictionary *response))successBlock
    failureBlock:(void (^)(NSError *error))failureBlock
   progressBlock:(void (^)(float progress))progressBlock{
     FileUtils *file = [[FileUtils alloc]initWithClient:self];
-    [file reUpload:data
-    successBlock:successBlock
-    failureBlock:failureBlock
-   progressBlock:progressBlock];
+    [file reUpload:uuid
+              data:data
+            header:header
+      successBlock:successBlock
+      failureBlock:failureBlock
+     progressBlock:progressBlock];
 }
 
 -(void)delete:(NSString *)uuid
@@ -249,6 +272,36 @@ progressBlock:(void (^)(float progress))progressBlock
     failureBlock:failureBlock];
 }
 
+-(void)fileInformation:(void (^)(NSDictionary *response))successBlock
+          failureBlock:(void (^)(NSError *error))failureBlock
+{
+    FileUtils *file = [[FileUtils alloc]initWithClient:self];
+    [file information:successBlock
+         failureBlock:failureBlock];
+}
+
+-(void)fileInformation:(NSString *)uuid
+          successBlock:(void (^)(NSDictionary *response))successBlock
+          failureBlock:(void (^)(NSError *error))failureBlock{
+    
+    FileUtils *file = [[FileUtils alloc]initWithClient:self];
+    [file fileInformation:uuid
+             successBlock:successBlock
+         failureBlock:failureBlock];
+}
+
+-(void)fileList:(NSString *)dir
+          successBlock:(void (^)(NSDictionary *response))successBlock
+          failureBlock:(void (^)(NSError *error))failureBlock{
+    
+    if (![dir hasSuffix:@"/"])
+        dir = [NSString stringWithFormat:@"%@/", dir];
+    
+    FileUtils *file = [[FileUtils alloc]initWithClient:self];
+    [file fileInformation:dir
+             successBlock:successBlock
+             failureBlock:failureBlock];
+}
 -(void)setLogging: (BOOL)loggingState{
     [_client setLogging:loggingState];
 }

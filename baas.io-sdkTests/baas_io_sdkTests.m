@@ -10,12 +10,15 @@
 #import "BaasClient.h"
 #import "JSONKit.h"
 @implementation baas_io_sdkTests{
+    BOOL exitRunLoop;
+
 }
+
 static NSString *access_token;
 - (void)setUp
 {
-//    access_token = @"YWMtxlrjJh6dEeKpGgIATUUAVAAAATqdAFbsIc_q2Ndcv3BVZQ1GgCBeo06bpf4";
     [BaasClient setApplicationInfo:@"test.file" applicationName:@"bropbox"];
+    exitRunLoop = NO;
 }
 
 - (void)test1_Login
@@ -27,6 +30,7 @@ static NSString *access_token;
 
     NSLog(@"response : %@", response.response);
     access_token = [response.response objectForKey:@"access_token"];
+    NSLog(@"access_token = %@", access_token);
 }
 //
 //
@@ -42,16 +46,16 @@ static NSString *access_token;
 //}
 
 
-- (void)test3_updateEntity
-{
-    BaasClient *client = [BaasClient createInstance];
-    [client setAuth:access_token];
-    //    [client setDelegate:self];
-    [client setLogging:YES];
-    
-    BaasIOResponse *response = [client updateEntity:@"test" entityID:@"d210eef6-1f17-11e2-a91a-02004d450054" entity:@{@"key" : @"value3"}];
-    NSLog(@"response : %@", response.rawResponse);
-}
+//- (void)test3_updateEntity
+//{
+//    BaasClient *client = [BaasClient createInstance];
+//    [client setAuth:access_token];
+//    //    [client setDelegate:self];
+//    [client setLogging:YES];
+//    
+//    BaasIOResponse *response = [client updateEntity:@"test" entityID:@"d210eef6-1f17-11e2-a91a-02004d450054" entity:@{@"key" : @"value3"}];
+//    NSLog(@"response : %@", response.rawResponse);
+//}
 
 //
 //- (void)test5_readEntity
@@ -106,4 +110,69 @@ static NSString *access_token;
 //    NSLog(@"response : %@", response.rawResponse);
 //}
 
+//- (void)test8_filesInformation
+//{
+//    BaasClient *client = [BaasClient createInstance];
+//    
+//    [client setAuth:access_token];
+//    [client setLogging:YES];
+//    
+//    [client fileInformation:^(NSDictionary *response){
+//                                NSLog(@"response : %@", response.description);
+//                                exitRunLoop = YES;
+//                            }
+//                            failureBlock:^(NSError *error){
+//                                NSLog(@"error : %@", error.localizedDescription);
+//                                exitRunLoop = YES;
+//                            }];
+//    
+//    [self runTestLoop];
+//}
+
+- (void)test9_fileInformation
+{
+    BaasClient *client = [BaasClient createInstance];
+    
+    [client setAuth:access_token];
+    [client setLogging:YES];
+    
+    [client fileInformation:@"1df2de6a-1f40-11e2-83cf-020026de0053"
+               successBlock:^(NSDictionary *response){
+        NSLog(@"response : %@", response.description);
+        exitRunLoop = YES;
+    }
+               failureBlock:^(NSError *error){
+                   NSLog(@"error : %@", error.localizedDescription);
+                   exitRunLoop = YES;
+               }];
+    
+    [self runTestLoop];
+}
+
+- (void)test9_fileList
+{
+    BaasClient *client = [BaasClient createInstance];
+    
+    [client setAuth:access_token];
+    [client setLogging:YES];
+    
+    [client fileList:@"public/20121026"
+               successBlock:^(NSDictionary *response){
+                   NSLog(@"response : %@", response.description);
+                   exitRunLoop = YES;
+               }
+               failureBlock:^(NSError *error){
+                   NSLog(@"error : %@", error.localizedDescription);
+                   exitRunLoop = YES;
+               }];
+    
+    [self runTestLoop];
+}
+
+
+- (void)runTestLoop{
+    while (!exitRunLoop){
+        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.5]];
+    }
+}
 @end
