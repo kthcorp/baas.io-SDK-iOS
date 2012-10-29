@@ -193,6 +193,11 @@ static NSString * _orgName;
 }
 
 
+-(BaasIOResponse *)readEntity: (NSString *)entityName entityID:(NSString *)entityID
+{
+    return [self getEntities:[NSString stringWithFormat:@"%@/%@", entityName, entityID] query:nil];
+}
+
 - (BaasIOResponse *)unregisterDevice:(NSString *)uuid
 {
 

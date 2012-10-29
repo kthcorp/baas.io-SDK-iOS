@@ -74,6 +74,17 @@ static NSString *access_token;
 //    NSLog(@"response : %@", response.rawResponse);
 //}
 
+- (void)test5_readEntity
+{
+    BaasClient *client = [BaasClient createInstance];
+    
+    [client setAuth:access_token];
+//    [client setDelegate:self];
+    [client setLogging:YES];
+    
+    BaasIOResponse *response = [client readEntity:@"test" entityID:@"d210eef6-1f17-11e2-a91a-02004d450054"];
+    NSLog(@"response : %@", response.rawResponse);
+}
 
 //
 //- (void)test6_removeEntity

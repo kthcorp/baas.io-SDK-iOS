@@ -62,6 +62,8 @@
 // removes an entity of the specified entityName
 -(BaasIOResponse *)removeEntity: (NSString *)entityName entityID:(NSString *)entityID;
 
+-(BaasIOResponse *)readEntity: (NSString *)entityName entityID:(NSString *)entityID;
+
 /********************* PUSH NOTIFICATION MANAGEMENT *********************/
 - (BaasIOResponse *)registerDevice:(NSString *)token tags:(NSArray *)tags;
 - (BaasIOResponse *)unregisterDevice:(NSString *)uuid;
