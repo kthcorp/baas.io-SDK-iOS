@@ -202,15 +202,15 @@ static NSString * _orgName;
 }
 
 /************* File MANAGEMENT *************/
--(void)download:(NSString *)url
-           path:(NSString*)path
+-(void)download:(NSString *)remotePath
+           path:(NSString*)localPath
    successBlock:(void (^)(NSDictionary *response))successBlock
    failureBlock:(void (^)(NSError *error))failureBlock
   progressBlock:(void (^)(float progress))progressBlock{
 
     FileUtils *file = [[FileUtils alloc]initWithClient:self];
-    [file download:url
-              path:path
+    [file download:remotePath
+              path:localPath
       successBlock:successBlock
       failureBlock:failureBlock
      progressBlock:progressBlock];
