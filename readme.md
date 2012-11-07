@@ -15,7 +15,7 @@ Baas.io-SDK-iOS는 git의 submodules로 구성 되어 있습니다. SoruceTree �
 또는
 
 	# git clone git://github.com/kthcorp/baas.io-SDK-iOS.git
-  # cd baas.io-SDK-iOS
+	# cd baas.io-SDK-iOS
 	# ./submodule_setup.sh
 	
 ## Build
