@@ -17,9 +17,10 @@ Baas.io-SDK-iOS는 git의 submodules로 구성 되어 있습니다. SoruceTree �
 	# git clone git://github.com/kthcorp/baas.io-SDK-iOS.git
 	# cd baas.io-SDK-iOS
 	# ./submodule_setup.sh
-zip으로 다운 받으신 경우에는 아래 스크립트만 실행해 주시면 됩니다.
 
-	# ./submodule_setup.sh
+zip으로 다운 받으신 경우에는 사용 할 수 없습니다. 아래 링크에서 소스를 다운 받으세요.
+<br>
+https://baas.io/docs/ko/ios/download.html
 
 ## Build
 일부 Xcode 버전에서 첫번째 빌드에서 header 파일을 못 찾는 버그가 있습니다. 컴파일 에러 발생 시 Project를 Clean(Shift+Cmd+K)하고 다시 Build(Cmd+R)하면 됩니다.
