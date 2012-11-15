@@ -21,7 +21,7 @@ static NSString * _applicationName;
 static NSString * _orgName;
 
 + (void)setApplicationInfo:(NSString *)orgName applicationName:(NSString *)applicationName{
-    _apiURL = @"https://stgapi.baas.io";
+    _apiURL = @"https://api.baas.io";
     [BaasClient setApplicationInfo:_apiURL organizationName:orgName applicationName:applicationName];
 
 }
